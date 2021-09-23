@@ -233,6 +233,7 @@ public class QuantityMeasurementTest {
         boolean compareCheck = centimeter1.compare(centimeter2);
         Assertions.assertFalse(compareCheck);
     }
+
     //NULL CHECK
     @Test
     public void given0CentimeterAndNullCentimeter_ShouldReturnNotEqual() {
@@ -240,6 +241,7 @@ public class QuantityMeasurementTest {
         QuantityMeasurement centimeter2 = null;
         Assertions.assertNotEquals(centimeter1, centimeter2);
     }
+
     //REF CHECK
     @Test
     public void Given0CentimeterAnd1CentimeterReference_shouldReturnNotEqual() {
@@ -273,6 +275,7 @@ public class QuantityMeasurementTest {
         Assertions.assertTrue(compareCheck);
 
     }
+
     //UC4
     @Test
     public void given2InchAnd2Inch_WhenAdded_ShouldReturn4Inch() {
@@ -282,7 +285,7 @@ public class QuantityMeasurementTest {
             QuantityMeasurement expected = new QuantityMeasurement(Length.INCH, 4.0);
             QuantityMeasurement actual = inch1.addition(inch2, Length.INCH);
             Assertions.assertEquals(expected, actual);
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -290,25 +293,25 @@ public class QuantityMeasurementTest {
     @Test
     public void given1FeetAnd2Inch_WhenAdded_ShouldReturn14Inch() {
         try {
-            QuantityMeasurement feet1 = new QuantityMeasurement(Length.FEET, 1.0);
-            QuantityMeasurement inch1 = new QuantityMeasurement(Length.INCH, 2.0);
+            QuantityMeasurement feet = new QuantityMeasurement(Length.FEET, 1.0);
+            QuantityMeasurement inch = new QuantityMeasurement(Length.INCH, 2.0);
             QuantityMeasurement expected = new QuantityMeasurement(Length.INCH, 14.0);
-            QuantityMeasurement actual = feet1.addition(inch1, Length.INCH);
+            QuantityMeasurement actual = feet.addition(inch, Length.INCH);
             Assertions.assertEquals(expected, actual);
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     @Test
-    public void given1FeetAnd1Feet_WhenAdded_ShouldReturn24Inch() {
+    public void given1FeetAnd2Feet_WhenAdded_ShouldReturn24Inch() {
         try {
             QuantityMeasurement feet1 = new QuantityMeasurement(Length.FEET, 1.0);
             QuantityMeasurement feet2 = new QuantityMeasurement(Length.FEET, 1.0);
             QuantityMeasurement expected = new QuantityMeasurement(Length.INCH, 24.0);
             QuantityMeasurement actual = feet1.addition(feet2, Length.INCH);
             Assertions.assertEquals(expected, actual);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -321,7 +324,7 @@ public class QuantityMeasurementTest {
             QuantityMeasurement expected = new QuantityMeasurement(Length.INCH, 3.0);
             QuantityMeasurement actual = inch.addition(centimeter, Length.INCH);
             Assertions.assertEquals(expected, actual);
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

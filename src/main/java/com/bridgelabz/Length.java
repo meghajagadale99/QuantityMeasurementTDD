@@ -8,6 +8,7 @@ public enum Length implements Unit {
     Length(double unitConversion) {
         this.unitConversion = unitConversion;
     }
+
     @Override
     public double convertToBaseUnit(QuantityMeasurement object) {
         return (object.value * unitConversion);
@@ -17,4 +18,4 @@ public enum Length implements Unit {
     public boolean getaddition() {
         return true;
     }
-    }
+}

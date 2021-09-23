@@ -8,6 +8,7 @@ public enum Weight implements Unit {
     Weight(double unitConversion) {
         this.unitConversion = unitConversion;
     }
+
     @Override
     public double convertToBaseUnit(QuantityMeasurement object) {
         return (object.value * unitConversion);
