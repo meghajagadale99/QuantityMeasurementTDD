@@ -273,4 +273,56 @@ public class QuantityMeasurementTest {
         Assertions.assertTrue(compareCheck);
 
     }
+
+    @Test
+    public void given2InchAnd2Inch_WhenAdded_ShouldReturn4Inch() {
+        try {
+            QuantityMeasurement inch1 = new QuantityMeasurement(Unit.INCH, 2.0);
+            QuantityMeasurement inch2 = new QuantityMeasurement(Unit.INCH, 2.0);
+            QuantityMeasurement expected = new QuantityMeasurement(Unit.INCH, 4.0);
+            QuantityMeasurement actual = inch1.addition(inch2, Unit.INCH);
+            Assertions.assertEquals(expected, actual);
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void given1FeetAnd2Inch_WhenAdded_ShouldReturn14Inch() {
+        try {
+            QuantityMeasurement feet1 = new QuantityMeasurement(Unit.FEET, 1.0);
+            QuantityMeasurement inch1 = new QuantityMeasurement(Unit.INCH, 2.0);
+            QuantityMeasurement expected = new QuantityMeasurement(Unit.INCH, 14.0);
+            QuantityMeasurement actual = feet1.addition(inch1, Unit.INCH);
+            Assertions.assertEquals(expected, actual);
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void given1FeetAnd1Feet_WhenAdded_ShouldReturn24Inch() {
+        try {
+            QuantityMeasurement feet1 = new QuantityMeasurement(Unit.FEET, 1.0);
+            QuantityMeasurement feet2 = new QuantityMeasurement(Unit.FEET, 1.0);
+            QuantityMeasurement expected = new QuantityMeasurement(Unit.INCH, 24.0);
+            QuantityMeasurement actual = feet1.addition(feet2, Unit.INCH);
+            Assertions.assertEquals(expected, actual);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void given2Inch2point5Centimeter_WhenAdded_ShouldReturn3Inch() {
+        try {
+            QuantityMeasurement inch = new QuantityMeasurement(Unit.INCH, 2.0);
+            QuantityMeasurement centimeter = new QuantityMeasurement(Unit.CENTIMETER, 2.5);
+            QuantityMeasurement expected = new QuantityMeasurement(Unit.INCH, 3.0);
+            QuantityMeasurement actual = inch.addition(centimeter, Unit.INCH);
+            Assertions.assertEquals(expected, actual);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
 }

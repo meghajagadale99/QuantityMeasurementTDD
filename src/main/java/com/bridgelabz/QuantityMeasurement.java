@@ -15,6 +15,10 @@ public class QuantityMeasurement {
         return Double.compare(this.unit.convertToBaseUnit(this), that.unit.convertToBaseUnit(that)) == 0;
     }
 
+    public QuantityMeasurement addition(QuantityMeasurement that, Conversion requiredUnit) {
+        double sumOfInput = this.unit.convertToBaseUnit(this) + that.unit.convertToBaseUnit(that);
+        return new QuantityMeasurement((Unit) requiredUnit, sumOfInput);
+    }
 
     @Override
     public boolean equals(Object o) {
