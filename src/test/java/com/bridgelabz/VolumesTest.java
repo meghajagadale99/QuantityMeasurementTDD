@@ -97,7 +97,7 @@ public class VolumesTest {
         boolean compareCheck = gallon1.compare(litre1);
         Assertions.assertFalse(compareCheck);
     }
-
+    //UC5
     @Test
     public void given1GallonAnd3point78Litre_WhenCompared_ShouldReturnEqual() {
         QuantityMeasurement gallon1 = new QuantityMeasurement(Volume.GALLON, 1.0);
@@ -177,6 +177,31 @@ public class VolumesTest {
         Assertions.assertTrue(compareCheck);
     }
 
+    //UC6
+    @Test
+    public void given1GallonAnd3point78Litre_WhenAdded_ShouldReturn7point57Liter() {
+        try {
+            QuantityMeasurement gallon1 = new QuantityMeasurement(Volume.GALLON, 1.0);
+            QuantityMeasurement litre1 = new QuantityMeasurement(Volume.LITRE, 3.78);
+            QuantityMeasurement expected = new QuantityMeasurement(Volume.LITRE, 7.56);
+            QuantityMeasurement actual = gallon1.addition(litre1, Volume.LITRE);
+            Assertions.assertEquals(expected, actual);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
+    @Test
+    void given1LitreAnd1000MilliLitre_WhenAdded_ShouldReturn2Liter() {
+        try {
+            QuantityMeasurement litre1 = new QuantityMeasurement(Volume.LITRE, 1.0);
+            QuantityMeasurement millilitre1 = new QuantityMeasurement(Volume.MILLILITRE, 1000.0);
+            QuantityMeasurement expected = new QuantityMeasurement(Volume.LITRE, 2.0);
+            QuantityMeasurement actual = litre1.addition(millilitre1, Volume.LITRE);
+            Assertions.assertEquals(expected, actual);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 }
