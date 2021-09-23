@@ -216,4 +216,61 @@ public class QuantityMeasurementTest {
         boolean compareCheck = yard.compare(feet);
         Assertions.assertTrue(compareCheck);
     }
+
+    //CENTIMETER
+    @Test
+    public void given0CentimeterAnd0Centimeter_ShouldReturnEqual() {
+        QuantityMeasurement centimeter1 = new QuantityMeasurement(Unit.CENTIMETER, 0.0);
+        QuantityMeasurement centimeter2 = new QuantityMeasurement(Unit.CENTIMETER, 0.0);
+        boolean compareCheck = centimeter1.compare(centimeter2);
+        Assertions.assertTrue(compareCheck);
+    }
+
+    @Test
+    public void given0CentimeterAnd1Centimeter_ShouldReturnNotEqual() {
+        QuantityMeasurement centimeter1 = new QuantityMeasurement(Unit.CENTIMETER, 0.0);
+        QuantityMeasurement centimeter2 = new QuantityMeasurement(Unit.CENTIMETER, 1.0);
+        boolean compareCheck = centimeter1.compare(centimeter2);
+        Assertions.assertFalse(compareCheck);
+    }
+    //NULL CHECK
+    @Test
+    public void given0CentimeterAndNullCentimeter_ShouldReturnNotEqual() {
+        QuantityMeasurement centimeter1 = new QuantityMeasurement(Unit.CENTIMETER, 0.0);
+        QuantityMeasurement centimeter2 = null;
+        Assertions.assertNotEquals(centimeter1, centimeter2);
+    }
+    //REF CHECK
+    @Test
+    public void Given0CentimeterAnd1CentimeterReference_shouldReturnNotEqual() {
+        QuantityMeasurement Centimeter1 = new QuantityMeasurement(Unit.CENTIMETER, 0.0);
+        QuantityMeasurement Centimeter2 = new QuantityMeasurement(Unit.CENTIMETER, 1.0);
+        Assertions.assertNotEquals(Centimeter1, Centimeter2);
+    }
+
+    //TYPE CHECK
+    @Test
+    public void GivenTypeCheckFor0CentimeterAnd1Centimeter_ShouldReturnEquals() {
+        QuantityMeasurement Centimeter1 = new QuantityMeasurement(Unit.CENTIMETER, 0.0);
+        QuantityMeasurement Centimeter2 = new QuantityMeasurement(Unit.CENTIMETER, 1.0);
+        Assertions.assertEquals(Centimeter1.getClass(), Centimeter2.getClass());
+    }
+
+    //UC3
+    @Test
+    public void given2InchAnd5Centimeter_WhenCompared_ShouldReturnEqualLength() {
+        QuantityMeasurement inch = new QuantityMeasurement(Unit.INCH, 2.0);
+        QuantityMeasurement centimeter = new QuantityMeasurement(Unit.CENTIMETER, 5.0);
+        boolean compareCheck = inch.compare(centimeter);
+        Assertions.assertTrue(compareCheck);
+    }
+
+    @Test
+    public void given5CentimeterAnd2Inch_WhenCompared_ShouldReturnEqualLength() {
+        QuantityMeasurement centimeter = new QuantityMeasurement(Unit.CENTIMETER, 5.0);
+        QuantityMeasurement inch = new QuantityMeasurement(Unit.INCH, 2.0);
+        boolean compareCheck = centimeter.compare(inch);
+        Assertions.assertTrue(compareCheck);
+
+    }
 }
