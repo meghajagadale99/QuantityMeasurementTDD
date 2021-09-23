@@ -9,15 +9,16 @@ public class QuantityMeasurement {
         this.value = value;
     }
 
+
     public boolean compare(QuantityMeasurement that) {
         if (this.unit.equals(that.unit))
             return this.equals(that);
         return Double.compare(this.unit.convertToBaseUnit(this), that.unit.convertToBaseUnit(that)) == 0;
     }
 
-    public QuantityMeasurement addition(QuantityMeasurement that, Conversion requiredUnit) {
+    public QuantityMeasurement addition(QuantityMeasurement that, Unit requiredUnit) {
         double sumOfInput = this.unit.convertToBaseUnit(this) + that.unit.convertToBaseUnit(that);
-        return new QuantityMeasurement((Unit) requiredUnit, sumOfInput);
+        return new QuantityMeasurement(requiredUnit, sumOfInput);
     }
 
     @Override
